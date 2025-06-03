@@ -1,0 +1,121 @@
+/* FONTS */
+@font-face {
+    font-family: "main";
+    src: url("NotoSans-Regular.ttf");
+    /* src: url('Nunito-Bold.ttf'); */
+}
+@font-face {
+    font-family: "default";
+    src: url("texgyreadventor-regular.otf");
+    /* src: url('AzeretMono-Thin.ttf'); */
+}
+/* BASICS */
+html {
+    overflow: hidden;
+    height: 100vh;
+}
+body {
+    margin: 0;
+    overflow: scroll;
+    height: 100vh;
+    padding-top: 60px;
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 60px;
+}
+/* NAV */
+nav {
+    position: fixed;
+    height: 60px;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+
+    font-family: "main", sans-serif;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #7b8c79;
+}
+a {
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+a[href="#Home"] {
+    background-image: url("./img/logo_line.svg");
+    width: 3em;
+    height: 1em;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/* ELEMENTS */
+h1 {
+    font-family: "main", sans-serif;
+    /* flex-basis: 100%; */
+    flex-basis: auto;
+}
+h2 {
+    font-family: "main", sans-serif;
+    /* flex-basis: 100%; */
+    flex-basis: auto;
+}
+h1,
+h2,
+p,
+ul {
+    max-width: 1200px;
+    /* width: 100%; */
+    background-color: rgb(255 255 255 / 1%);
+    backdrop-filter: blur(15px);
+    padding: 0.5em 1em;
+}
+/* SECTIONS */
+section {
+    height: 100vh;
+    border-top: 2px solid white;
+    scroll-snap-align: start;
+    padding: 60px 5rem 0rem 5rem;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    background-size: cover;
+    background-position: center;
+
+    backdrop-filter: blur(2px);
+}
+#Home {
+    background-image: url("./img/logo.svg");
+}
+#Die_Philosophie {
+    background-image: url("./img/Feet.jpg");
+}
+#Joseph_Pilates {
+    background-image: url("./img/Hands.jpg");
+}
+#Die_Methode {
+    background-image: url("./img/Knee.jpg");
+}
+#Das_Ziel {
+    background-image: url("./img/Machine.jpg");
+}
+#Marcelo_de_Melo {
+    background-image: url("./img/Marcelo_1.jpg");
+}
+#Coaching_und_Mentoring {
+    background-image: url("./img/Feet.jpg");
+}
+#Kontakt {
+    background-image: url("./img/Hands.jpg");
+}
+#Preise {
+    background-image: url("./img/Knee.jpg");
+}
+#Impressum {
+    background-image: url("./img/Machine.jpg");
+}
