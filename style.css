@@ -10,23 +10,24 @@
     /* src: url('AzeretMono-Thin.ttf'); */
 }
 /* BASICS */
+* {
+    box-sizing: border-box;
+}
 html {
     overflow: hidden;
     height: 100vh;
 
-    --c1: #8D95A6;
-    --c2: #734E39;
-    --c3: #732F17;
-    --c4: #401D10;
-    --c5: #8C5E4D;
+    --c1: #8d95a6;
+    --c2: #734e39;
+    --c3: #732f17;
+    --c4: #401d10;
+    --c5: #8c5e4d;
 
-    --c6: #8C8079;
-    --c7: #7B798C;
-    --c8: #7B8C79;
+    --c6: #8c8079;
+    --c7: #7b798c;
+    --c8: #7b8c79;
     --c9: #243722;
-    --c10: #FFA970;
-
-
+    --c10: #ffa970;
 }
 body {
     margin: 0;
@@ -84,12 +85,15 @@ h2 {
 h1,
 h2,
 p,
-ul {
+ul,
+blockquote {
     max-width: 1200px;
     /* width: 100%; */
     background-color: rgb(255 255 255 / 1%);
     backdrop-filter: blur(15px);
     padding: 0.5em 1em;
+    border-radius: .5rem;
+    box-shadow: 0 0 10px 10px rgba(255, 255, 255, 0.02);
 }
 /* SECTIONS */
 section {
@@ -102,10 +106,8 @@ section {
     justify-content: center;
     flex-wrap: wrap;
     backdrop-filter: blur(2px);
-    
-    
 }
-section::before{
+section::before {
     background-size: cover;
     background-position: center;
     position: absolute;
@@ -115,7 +117,7 @@ section::before{
     bottom: 0;
     content: "";
     display: block;
-    filter: blur(1px) contrast(.75) saturate(.9) brightness(.9) sepia(10%);
+    filter: blur(1px) contrast(0.75) saturate(0.9) brightness(0.9) sepia(10%);
     /* sepia(90%) hue-rotate(85deg) */
 }
 #Home::before {
