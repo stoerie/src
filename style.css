@@ -13,6 +13,20 @@
 html {
     overflow: hidden;
     height: 100vh;
+
+    --c1: #8D95A6;
+    --c2: #734E39;
+    --c3: #732F17;
+    --c4: #401D10;
+    --c5: #8C5E4D;
+
+    --c6: #8C8079;
+    --c7: #7B798C;
+    --c8: #7B8C79;
+    --c9: #243722;
+    --c10: #FFA970;
+
+
 }
 body {
     margin: 0;
@@ -34,7 +48,11 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #7b8c79;
+    /* background-color: #7b8c79;
+    background-color: #bfdfbc; */
+    /* background-color: var(--c6); */
+    background-color: var(--c8);
+    /* background-color: var(--c10); */
 }
 a {
     color: black;
@@ -75,47 +93,58 @@ ul {
 }
 /* SECTIONS */
 section {
-    height: 100vh;
-    border-top: 2px solid white;
+    min-height: 100vh;
+    /* border-top: 2px solid white; */
     scroll-snap-align: start;
-    padding: 60px 5rem 0rem 5rem;
+    padding: 60px 5rem 10rem 5rem;
     display: flex;
     align-content: center;
     justify-content: center;
     flex-wrap: wrap;
-
+    backdrop-filter: blur(2px);
+    
+    
+}
+section::before{
     background-size: cover;
     background-position: center;
-
-    backdrop-filter: blur(2px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    display: block;
+    filter: blur(1px) contrast(.75) saturate(.9) brightness(.9) sepia(10%);
+    /* sepia(90%) hue-rotate(85deg) */
 }
-#Home {
+#Home::before {
     background-image: url("./img/logo.svg");
 }
-#Die_Philosophie {
+#Die_Philosophie::before {
     background-image: url("./img/Feet.jpg");
 }
-#Joseph_Pilates {
+#Joseph_Pilates::before {
     background-image: url("./img/Hands.jpg");
 }
-#Die_Methode {
+#Die_Methode::before {
     background-image: url("./img/Knee.jpg");
 }
-#Das_Ziel {
+#Das_Ziel::before {
     background-image: url("./img/Machine.jpg");
 }
-#Marcelo_de_Melo {
+#Marcelo_de_Melo::before {
     background-image: url("./img/Marcelo_1.jpg");
 }
-#Coaching_und_Mentoring {
+#Coaching_und_Mentoring::before {
     background-image: url("./img/Feet.jpg");
 }
-#Kontakt {
+#Kontakt::before {
     background-image: url("./img/Hands.jpg");
 }
-#Preise {
+#Preise::before {
     background-image: url("./img/Knee.jpg");
 }
-#Impressum {
+#Impressum::before {
     background-image: url("./img/Machine.jpg");
 }
