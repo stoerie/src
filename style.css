@@ -51,19 +51,19 @@ h2 {
 #Home {
     --img: url("./img/logo.svg");
 }
-#Die_Philosophie {
+#Joseph_Pilates {
     --img: url("./img/Feet.jpg");
 }
-#Joseph_Pilates {
-    --img: url("./img/Hands.jpg");
+#Marcelo_de_Melo {
+    --img: url("./img/Marcelo_1.jpg");
 }
-#Die_Methode {
+#Das_Training {
     --img: url("./img/Knee.jpg");
 }
-#Das_Ziel {
+#Kontakt_Impressum {
     --img: url("./img/Machine.jpg");
 }
-#Marcelo_de_Melo {
+/* #Marcelo_de_Melo {
     --img: url("./img/Marcelo_1.jpg");
 }
 #Coaching_und_Mentoring {
@@ -77,7 +77,7 @@ h2 {
 }
 #Impressum {
     --img: url("./img/Machine.jpg");
-}
+} */
 /* BASICS */
 * {
     box-sizing: border-box;
