@@ -17,70 +17,65 @@ h2 {
 }
 /* VARS */
 :root {
-    
-    --c: #7B8C79;
-    --c: #E2C044;
-    --c: #023C40;
-    --c: #A35A52;
-    --c: #FE938C;
-    --c: #D7B69D;
-    --c: #7C77B9;
-    --c: #87677B;
-    --c: #E4DEE4;
-    --c: #4B3B47;
-    --c: #E0D8DE;
-    --c: #FED9B7;
-    --c: #34312D;
-    --c: #D6A99A;
+    /* --c: #7b8c79;
+    --c: #e2c044;
+    --c: #023c40;
+    --c: #a35a52;
+    --c: #fe938c;
+    --c: #d7b69d;
+    --c: #7c77b9;
+    --c: #87677b;
+    --c: #e4dee4;
+    --c: #4b3b47;
+    --c: #e0d8de;
+    --c: #fed9b7;
+    --c: #34312d;
+    --c: #d6a99a;
+    --c: #e6e8ef; */
 
-   
-    font-size: 14px;
+    font-size: 16px;
     --nav_height: 3rem;
     --nav_logo_width: 4em;
+    --section_shadow: 0 0 10px 0px #e6efe664; 
     --nav_bg: #7b8c79;
     --nav_col: #250518;
     --body_bg: #e6e8ef;
     --body_col: #250518;
-    --sect_line: 2px solid white;
-    /* --backdrop_filter: blur(15px); */
-    /* --backdrop_shadow: 0 0 10px 10px rgba(255, 255, 255, 0.02); */
-    --backdrop_bg: transparent; /*rgba(255, 255, 255, 0.03);*/
-    --backdrop_tshadow: 0 0 15px rgba(255, 187, 114, 0.532);
-    --image_filter: blur(1px) contrast(0.75) saturate(0.9) brightness(0.9) sepia(10%); /* sepia(90%) hue-rotate(85deg) */
+    --sect_line: 0px solid white;
+    --backdrop_filter: blur(25px);
+    --backdrop_shadow: 0 0 10px 10px rgba(255, 255, 255, 0.02);
+    --backdrop_bg: #e6e8efc8; /*transparent;*/ /*rgba(255, 255, 255, 0.03);*/
+    /* --backdrop_tshadow: 0 0 15px rgba(255, 187, 114, 0.532); */
+    --image_filter: blur(1px) contrast(0.75) saturate(0.5) brightness(1.6) sepia(20%); /* sepia(90%) hue-rotate(85deg) */
+
+    --image_height: calc(50vh - var(--nav_height));
 }
 #Home {
-    --img: url("./img/logo.svg");
+    --img: url("./img/Machine.jpg");
 }
 #Joseph_Pilates {
     --img: url("./img/Feet.jpg");
 }
 #Marcelo_de_Melo {
     --img: url("./img/Marcelo_1.jpg");
+    --bg_position: center 30%;
 }
 #Das_Training {
     --img: url("./img/Knee.jpg");
 }
 #Kontakt_Impressum {
-    --img: url("./img/Machine.jpg");
+    --img: url("./img/Wall.jpg");
 }
-/* #Marcelo_de_Melo {
-    --img: url("./img/Marcelo_1.jpg");
-}
-#Coaching_und_Mentoring {
-    --img: url("./img/Feet.jpg");
-}
-#Kontakt {
-    --img: url("./img/Hands.jpg");
-}
-#Preise {
-    --img: url("./img/Knee.jpg");
-}
-#Impressum {
-    --img: url("./img/Machine.jpg");
-} */
 /* BASICS */
 * {
     box-sizing: border-box;
+}
+h1,
+h2,
+p,
+ul,
+blockquote {
+    width: fit-content;
 }
 html {
     overflow: hidden;
@@ -88,27 +83,38 @@ html {
 }
 body {
     margin: 0;
-    overflow: scroll;
     height: 100vh;
-    scroll-snap-type: y mandatory;
-    padding-top: var(--nav_height);
-    scroll-padding-top: var(--nav_height);
     color: var(--body_col);
     background-color: var(--body_bg);
+}
+#content {
+    position: fixed;
+    top: var(--nav_height);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
 }
 /* NAV */
 nav {
     position: fixed;
     z-index: 999;
     top: 0;
-    width: 100%;
+    left: 0;
+    right: 0;
+    /* max-width: 800px; */
+    /* margin: auto; */
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     height: var(--nav_height);
     color: var(--nav_col);
     fill: var(--nav_col);
     background-color: var(--nav_bg);
+    padding: 0 0.5em;
+    /* box-shadow: var(--section_shadow); */
 }
 a {
     color: inherit;
@@ -125,39 +131,78 @@ a[href="#Home"] {
     align-content: center;
     justify-content: center;
 }
-/* BACKDROP */
-h1,
-h2,
-p,
-ul,
-blockquote {
-    width: fit-content;
-    padding: 0.5em 1em;
-    border-radius: 0.5rem;
-    backdrop-filter: var(--backdrop_filter);
-    box-shadow: var(--backdrop_shadow);
-    text-shadow: var(--backdrop_tshadow);
-    background-color: var(--backdrop_bg);
-}
-/* SECTIONS */
-section {
+/* ARTICLES */
+article {
     position: relative;
-    min-height: 100vh;
+    min-height: calc(100vh - var(--nav_height));
     scroll-snap-align: start;
-    padding: var(--nav_height) 5vw 10rem 5vw;
     border-top: var(--sect_line);
+    /* padding: var(--nav_height) 0vw 0rem 0vw; */
 }
-section::before {
+article::before {
+    content: "";
+    display: block;
     background-size: cover;
-    background-position: center;
-    position: absolute;
+    background-position: var(--bg_position, center);
+    position: sticky;
     z-index: -999;
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
-    content: "";
-    display: block;
+    height: var(--image_height);
+    margin-bottom: calc(var(--image_height) * -1);
     filter: var(--image_filter);
     background-image: var(--img);
+}
+h1,
+h2 {
+    position: sticky;
+    top: 2rem;
+    left: 2rem;
+    z-index: -999;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    text-shadow: 0 4px 10px rgba(255, 255, 255, 0.4);
+    /* color: black;
+    text-shadow:0 0 2px white; */
+}
+article>blockquote{
+    position: absolute;
+    top: 6vh;
+    left: 3vw;
+    /* margin: 10vh 0 0 10vw; */
+}
+h3{
+    margin-top: 2em;
+    margin-bottom: .5em;
+}
+section {
+    margin: var(--image_height) 0 0 0;
+    /* margin-top: 80vh; */
+    padding: 1em 1em 20em 1em;
+    /* border-radius: 0.5rem; */
+    backdrop-filter: var(--backdrop_filter);
+    box-shadow: var(--backdrop_shadow);
+    text-shadow: var(--backdrop_tshadow);
+    background-color: var(--backdrop_bg);
+
+    box-shadow: var(--section_shadow);
+    /* 
+    position: absolute; */
+    /* top: var(--pos_y);
+    left: var(--pos_x); */
+}
+section > * {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer{
+    /* height: 20rem; */
+    /* margin-top: -2em; */
+    /* z-index: 9999; */
+    scroll-snap-align: start;
+    text-align: center;
 }
