@@ -145,6 +145,7 @@ a {
 }
 a[href="#Home"] {
     width: var(--nav_logo_width);
+    max-width: 3vw;
     display: flex;
     align-content: center;
     justify-content: center;
@@ -229,9 +230,9 @@ footer {
     /* height: 20rem; */
     /* margin-top: -2em; */
     /* z-index: 9999; */
-    scroll-snap-align: start;
+    /* scroll-snap-align: start;
     text-align: center;
-    padding: 3rem 0;
+    padding: 3rem 0; */
 }
 
 
@@ -263,3 +264,14 @@ blockquote:before {
     content: close-quote;  
     float: right;
 }  */
+
+footer{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 9999999999;
+    background-color: var(--body_bg);
+    padding: 1rem;
+    text-align: right;
+}
