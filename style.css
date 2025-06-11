@@ -36,7 +36,7 @@ h2 {
     font-size: 16px;
     --nav_height: 3rem;
     --nav_logo_width: 4em;
-    --section_shadow: 0 0 10px 0px #e6efe664; 
+    --section_shadow: 0 0 10px 0px #e6efe664;
     --nav_bg: #7b8c79;
     --nav_col: #250518;
     --body_bg: #e6e8ef;
@@ -46,9 +46,16 @@ h2 {
     --backdrop_shadow: 0 0 10px 10px rgba(255, 255, 255, 0.02);
     --backdrop_bg: #e6e8efc8; /*transparent;*/ /*rgba(255, 255, 255, 0.03);*/
     /* --backdrop_tshadow: 0 0 15px rgba(255, 187, 114, 0.532); */
-    --image_filter: blur(1px) contrast(0.75) saturate(0.5) brightness(1.6) sepia(20%); /* sepia(90%) hue-rotate(85deg) */
+    --image_filter: contrast(0.8) saturate(0.7) brightness(1.2); 
+    /* --image_filter: blur(1px) contrast(0.75) saturate(0.5) brightness(1.6) sepia(20%);  */
+    /* sepia(90%) hue-rotate(85deg) */
 
     --image_height: calc(50vh - var(--nav_height));
+
+    --quote_col: #72856f;
+
+    --max_w: 1200px;
+    --max_text_w: 600px;
 }
 #Home {
     --img: url("./img/Machine.jpg");
@@ -97,6 +104,13 @@ body {
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
 }
+#content > * {
+    max-width: var(--max_w);
+    margin: auto;
+}
+#content>*:first-child{
+    margin-top: 3rem;
+}
 /* NAV */
 nav {
     position: fixed;
@@ -104,17 +118,21 @@ nav {
     top: 0;
     left: 0;
     right: 0;
-    /* max-width: 800px; */
-    /* margin: auto; */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    /* box-shadow: var(--section_shadow); */
     height: var(--nav_height);
     color: var(--nav_col);
     fill: var(--nav_col);
     background-color: var(--nav_bg);
+}
+nav > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--nav_height);
+
     padding: 0 0.5em;
-    /* box-shadow: var(--section_shadow); */
+    max-width: var(--max_w);
+    margin: auto;
 }
 a {
     color: inherit;
@@ -146,10 +164,12 @@ article::before {
     background-position: var(--bg_position, center);
     position: sticky;
     z-index: -999;
-    top: 0;
+    top: 5rem;
     left: 0;
     right: 0;
     height: var(--image_height);
+    margin: 1px;
+    /* margin-top: 2rem; */
     margin-bottom: calc(var(--image_height) * -1);
     filter: var(--image_filter);
     background-image: var(--img);
@@ -157,25 +177,31 @@ article::before {
 h1,
 h2 {
     position: sticky;
-    top: 2rem;
-    left: 2rem;
+    top: 0;
+    left: 0;
     z-index: -999;
-    height: 0;
+    /* height: 0; */
+    /* margin: 0;
+    margin-left: 2rem; */
+    padding: 1.5rem .25rem;
     margin: 0;
-    padding: 0;
+    /* box-shadow: 0 0 4px 10px var(--body_bg); */
     text-shadow: 0 4px 10px rgba(255, 255, 255, 0.4);
+    background-color: var(--body_bg);
+    width: 100%;
+    /* height: var(--nav_height); */
     /* color: black;
     text-shadow:0 0 2px white; */
 }
-article>blockquote{
+article > blockquote {
     position: absolute;
     top: 6vh;
     left: 3vw;
     /* margin: 10vh 0 0 10vw; */
 }
-h3{
+h3 {
     margin-top: 2em;
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
 }
 section {
     margin: var(--image_height) 0 0 0;
@@ -194,15 +220,46 @@ section {
     left: var(--pos_x); */
 }
 section > * {
-    max-width: 800px;
+    max-width: var(--max_text_w);
     margin-left: auto;
     margin-right: auto;
 }
 
-footer{
+footer {
     /* height: 20rem; */
     /* margin-top: -2em; */
     /* z-index: 9999; */
     scroll-snap-align: start;
     text-align: center;
+    padding: 3rem 0;
 }
+
+
+blockquote{
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--quote_col);
+}
+blockquote:before {  
+    content: open-quote;  
+    font-size: 2em;  
+    /* text-align: center;  
+    line-height: 42px;   */
+    /* color: #fff;  
+    background: #ddd;   */
+    float: left;  
+    position: relative;  
+    /* border-radius: 25px;   */
+   margin-top: -1em;
+   margin-left: -.75em;
+  /* vertical-align: -0.4em; */
+  
+    /** define it as a block element **/  
+    display: block;  
+    /* height: 25px;  
+    width: 25px;   */
+}  
+/* blockquote:after {  
+    content: close-quote;  
+    float: right;
+}  */
